@@ -2,20 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.centered-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.flex-center-arena {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 3px dashed #6366f1;
+  border-radius: 1rem;
+}
+
+.rotate-on-hover:hover {
+  transform: rotate(5deg) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.wobble-animation {
+  animation: wobble 2s infinite;
+}
+
+@keyframes wobble {
+  0%, 100% {
+    transform: translateX(0%);
+  }
+  15% {
+    transform: translateX(-25%) rotate(5deg);
+  }
+  30% {
+    transform: translateX(20%) rotate(-5deg);
+  }
+  45% {
+    transform: translateX(-15%) rotate(3.6deg);
+  }
+  60% {
+    transform: translateX(10%) rotate(-3.6deg);
+  }
+  75% {
+    transform: translateX(-5%) rotate(2.4deg);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-gradient {
+  background-size: 300% 300%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
